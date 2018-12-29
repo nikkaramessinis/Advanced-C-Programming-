@@ -2,9 +2,8 @@
 #include <fstream>
 #include <string >
 using namespace std;
-
-int main() {
-	//ofstream outFile;
+ int main() {
+ofstream outFile;
 	
 	fstream outFile;
 	string outputFileName = "text.txt";
@@ -13,7 +12,7 @@ int main() {
 
 	if (outFile.is_open()) {
 		for(int i=1;i<=10;i++)
-		outFile << i <<" This is a line"<< endl;
+		outFile << i <<" Aint noting but a g thang"<< endl;
 		outFile.close();
 	}
 	else {
