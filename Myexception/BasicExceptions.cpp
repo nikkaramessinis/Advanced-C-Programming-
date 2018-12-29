@@ -23,5 +23,4 @@ int main() {
 	catch (MyException &e) {
 		cout << e.what() << endl;
 	}
-	while (1);
 }
