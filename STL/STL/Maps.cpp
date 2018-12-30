@@ -2,31 +2,37 @@
 #include <map>
 #include <string>
 using namespace std;
+class Person {
+private:
+	string name;
+	int age;
+public:
+	Person() :name(""), age(0) {}
+	Person(const Person &other) {
+		cout << "Copy Constructor running!" << endl;
+		name = other.name;
+		age = other.age;
+	}
+	Person(string name, int age) :name(name), age(age) {}
+	void print() {
+		cout << name << ":" << age << endl;
+	}
+
+};
+
+
 int main() {
-	map<string, int>ages;
-	ages["Mike"] = 40;
-	ages["raj"] = 20;
-	ages["Vicky"] = 30;
-
+	map<int, Person>people;
 	
-	ages.insert(pair<string, int>("Peter", 100));
-	ages.insert(make_pair("Kostas", 290));
-	cout << ages["raj"] << endl;
-	cout << ages["Sue"] << endl;
-	if (ages.find("Vicky") != ages.end()) {
-		cout << "Found Vicky"<<endl;
-	}
-	else {
-		cout << "Key not found";
-	}
-	for (map<string, int>::iterator it = ages.begin(); it != ages.end(); it++) {
-		pair<string, int> age = *it;
+	people[1] = Person("Vicky", 30);
+	people[2] = Person("Kostas", 20);
 
-		cout << age.first << ":" << age.second<<endl;
-	}
+	people[0] = Person("Mike", 40);
+	people.insert(make_pair(55, Person("Bob", 45)));
 
-	for (map<string, int>::iterator it = ages.begin(); it != ages.end(); it++) {
-		cout << it->first << ":" << it->second << endl;
+	for (map<int, Person>::iterator it = people.begin(); it != people.end(); it++) {
+		cout << it->first << ":" << flush;
+		it->second.print();
 	}
 
 	while (1);
