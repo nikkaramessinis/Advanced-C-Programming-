@@ -4,16 +4,22 @@
 using namespace std;
 
 int main() {
-	vector<int>integers;
-	integers.push_back(3);
-	integers.push_back(2);
-	integers.push_back(1);
+	vector<double>numbers(0);
+	cout << "Size :" << numbers.size() << endl;
+	int capacity = numbers.capacity();
+	
 
-	for (unsigned int i = 0; i < integers.size(); i++) {
-		cout << integers[i]<<endl;
+	for (int i= 0; i < 10000; i++) {
+		if (numbers.capacity() != capacity) {
+			capacity = numbers.capacity();
+			cout << "Capacity:" << capacity << endl;
+		}
+		numbers.push_back(i);
 	}
-	for (vector<int>::iterator it = integers.begin(); it != integers.end(); it++) {
-		cout << *it << endl;
-	}
+	//numbers.resize(100);
+	numbers.reserve(99999999);
+	cout << numbers[2] << endl;
+	cout << "Size:" << numbers.size() << endl;
+	cout << "Capacity:" << numbers.capacity()<< endl;
 	while (1);
 }
