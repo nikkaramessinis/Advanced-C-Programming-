@@ -36,6 +36,11 @@ namespace caveofprogramming {
 		return !(*this==other);
 	}
 
+	Complex Complex::operator*() const
+	{
+		return Complex(real,-imaginary);
+	}
+
 	Complex::~Complex()
 	{
 	}

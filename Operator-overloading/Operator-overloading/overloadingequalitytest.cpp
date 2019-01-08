@@ -4,7 +4,7 @@
 
 using namespace caveofprogramming;
 int main() {
-	Complex c1(3, 2);
+	Complex c1(3, 3);
 	Complex c2(3, 2);
 
 
@@ -23,5 +23,6 @@ int main() {
 	else {
 		cout << "Equal" << endl;
 	}
+	cout << *c1 +Complex(4,3)<< endl;
 	while (1);
 }
