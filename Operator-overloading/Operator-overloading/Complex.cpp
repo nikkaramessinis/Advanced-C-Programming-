@@ -26,6 +26,16 @@ namespace caveofprogramming {
 
 
 
+	bool Complex::operator==(const Complex & other) const
+	{
+		return imaginary == other.imaginary && real == other.real;
+	}
+
+	bool Complex::operator!=(const Complex & other) const
+	{
+		return !(*this==other);
+	}
+
 	Complex::~Complex()
 	{
 	}
