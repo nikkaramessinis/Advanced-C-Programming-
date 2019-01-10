@@ -12,6 +12,6 @@ int main() {
 	//pTest = test;
 	pTest(4);
 
-	while (1);
+	//while (1);
 	return 0;
 }
