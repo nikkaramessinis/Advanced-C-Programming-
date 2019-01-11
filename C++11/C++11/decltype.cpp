@@ -12,5 +12,8 @@ int main() {
 	cout << typeid(name).name()<<endl;
 	cout << name;
 
+
+
+
 	while (1);
 }
