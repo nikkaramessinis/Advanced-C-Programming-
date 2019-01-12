@@ -21,6 +21,14 @@ public:
 	int size() {
 		return m_size;
 	}
+
+	iterator begin() {
+		return iterator(0, *this);
+	}
+
+	iterator end() {
+		return iterator(m_size, *this);
+	}
 	void add(T value) {
 		m_values[m_pos] = value;
 		m_pos++;
@@ -38,11 +46,30 @@ public:
 
 template<class T>
 class ring<T>::iterator {
+private:
+	int m_pos;
+	ring &m_ring;
 public:
-	
+	iterator(): m_pos(0), m_ring(NULL) {}
+	iterator(int pos, ring &aring):m_pos(pos),m_ring(aring) {
+		
+	}
 	void print(){
 		cout << "Hello from iterator" << T()<<endl;
 	}
 
-
+	iterator &operator++(int ) {
+		m_pos++;
+		return *this;
+	}
+	iterator &operator++() {
+		m_pos++;
+		return *this;
+	}
+	T &operator*() {
+		return m_ring.get(m_pos);
+	}
+	bool operator!=(const iterator &other)const {
+		return m_pos != other.m_pos;
+	}
 };
