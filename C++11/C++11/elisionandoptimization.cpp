@@ -56,6 +56,32 @@ int main() {
 
 	cout << test1;
 	
+
+
+	vector<Test> vec;
+	vec.push_back(Test());
+
+	//lvalue=rvalue
+	int value1 = 7;
+	//lvalue anything you can take the address of
+	int *pValue1 = &value1;
+
+	//cause 7 is an rvalue
+	//int *pValue = &7;
+
+	Test *pTest1 = &test1;
+	//temporary value rvalue
+	//Test *pTest2 = &getTest();
+
+	//increments the value and then uses it 
+	int *pValue3 = &++value1;
+	cout << *pValue3 << endl;
+
+	//error use the value and then increment it so temporary value is made so rvalue
+	//int *pValue4 = &value++;
+
+	//rvalue even though value 1 is an rvalue
+	//int s = &(7 + value1);
 	while (1);
 	return 0;
 }
