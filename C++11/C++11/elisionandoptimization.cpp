@@ -50,6 +50,17 @@ ostream &operator<<(ostream &out, const Test &test) {
 Test getTest() {
 	return Test();
 }
+
+void check(const Test&value) {
+
+	cout << "lvalue function" << endl;
+}
+
+
+void check(Test &&value) {
+
+	cout << "rvalue function" << endl;
+}
 int main() {
 	Test test1=getTest();
 
@@ -89,7 +100,20 @@ int main() {
 	// Test& rTest2 = getTest();
 
 	const Test& rTest2 = getTest();
+	
 	Test test2(Test(1));
+	
+
+	Test &ltest1 = test1;
+	Test &&rtest1 = Test();
+	Test &&rtest2 = getTest();
+	//rvalue references
+	cout << "References" << endl<<endl;
+	//error
+	//Test &&rtest1 = test1;
+	check(test1);
+	check(getTest());
+	check(Test());
 	
 	while (1);
 	return 0;
