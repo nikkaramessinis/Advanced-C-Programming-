@@ -4,7 +4,7 @@ using namespace std;
 
 class Parent {
 public:
-	void speak() {
+	virtual void speak() {
 		cout << "parent!" << endl;
 	}
 };
@@ -24,7 +24,7 @@ int  main() {
 	float value = 3.23f;
 
 	//cout << int(value)<<endl;
-	cout << static_cast<int>(value) << endl;
+	//cout << static_cast<int>(value) << endl;
 
 
 	Parent *pp = &brother;
@@ -32,11 +32,23 @@ int  main() {
 	//Brother *pb = static_cast<Brother*>(&parent);
 	Parent *ppb = &brother;
 	//cout << pb << endl;
-	Brother * pbb = static_cast<Brother*>(ppb);
+	//Brother * pbb = static_cast<Brother*>(ppb);
 
 	//Parent &&p = Parent();
 	Parent &&p = static_cast<Parent &&>(parent);
-	p.speak();
+	//p.speak();
+
+
+	Brother *pbb = dynamic_cast<Brother*>(ppb);
+	if (pbb == nullptr) {
+		cout << "invalid cast" << endl;
+	}
+	else {
+		cout << pbb << endl;
+	}
+
+
+
 	while (1);
 		return 0;
 }
