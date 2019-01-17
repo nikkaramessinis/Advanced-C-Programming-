@@ -82,6 +82,15 @@ int main() {
 
 	//rvalue even though value 1 is an rvalue
 	//int s = &(7 + value1);
+
+
+	Test &rTest1 = test1;
+
+	// Test& rTest2 = getTest();
+
+	const Test& rTest2 = getTest();
+	Test test2(Test(1));
+	
 	while (1);
 	return 0;
 }
