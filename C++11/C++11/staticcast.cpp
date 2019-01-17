@@ -20,7 +20,7 @@ class Sister :public Parent {
 int  main() {
 	Parent parent;
 	Brother brother;
-
+	Sister sister;
 	float value = 3.23f;
 
 	//cout << int(value)<<endl;
@@ -39,14 +39,20 @@ int  main() {
 	//p.speak();
 
 
-	Brother *pbb = dynamic_cast<Brother*>(ppb);
+	//Brother *pbb = dynamic_cast<Brother*>(ppb);
+	//if (pbb == nullptr) {
+		//cout << "invalid cast" << endl;
+	//}
+	//else {
+		//cout << pbb << endl;
+	//}
+	Sister *pbb = reinterpret_cast<Sister*>(ppb);
 	if (pbb == nullptr) {
 		cout << "invalid cast" << endl;
 	}
 	else {
 		cout << pbb << endl;
 	}
-
 
 
 	while (1);
