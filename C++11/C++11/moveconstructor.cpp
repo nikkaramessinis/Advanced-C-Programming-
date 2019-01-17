@@ -20,6 +20,9 @@ public:
 		for (int i = 0; i < SIZE; i++) {
 			_pBuffer[i] = 7 * i;
 		}
+
+
+
 	}
 
 	Test(const Test &other) {
@@ -40,6 +43,13 @@ public:
 	}
 
 	friend ostream &operator<<(ostream &out, const Test &test);
+
+	Test &operator=(Test &&other) {
+		cout << "Move assignment" << endl;
+		delete[]_pBuffer;
+		_pBuffer = other._pBuffer;
+		other._pBuffer = nullptr; return *this;
+	}
 };
 
 
@@ -57,6 +67,8 @@ int main() {
 	vec.push_back(Test());
 
 
+	Test test;
+	test = getTest();
 	while (1);
 	return 0;
 }
